@@ -23,7 +23,7 @@ jobs:
         run: echo "::add-mask::${{ secrets.ALBUM_URL_1 }}"
       - name: copyfiles
         run: |
-          curl -o exprot/photo/album/1.jpg ${{ secrets.ALBUM_URL_1 }}
+          curl -o export/photo/album/1.jpg ${{ secrets.ALBUM_URL_1 }}
       - uses: actions/upload-artifact@v3
         with:
           name: my_site
