@@ -21,9 +21,27 @@ jobs:
         run: pwd
       - name: Add Mask
         run: echo "::add-mask::${{ secrets.ALBUM_URL_1 }}"
+        run: echo "::add-mask::${{ secrets.ALBUM_URL_2 }}"
+        run: echo "::add-mask::${{ secrets.ALBUM_URL_3 }}"
+        run: echo "::add-mask::${{ secrets.ALBUM_URL_4 }}"
+        run: echo "::add-mask::${{ secrets.ALBUM_URL_5 }}"
+        run: echo "::add-mask::${{ secrets.ALBUM_URL_6 }}"
+        run: echo "::add-mask::${{ secrets.ALBUM_URL_7 }}"
+        run: echo "::add-mask::${{ secrets.ALBUM_URL_8 }}"
+        run: echo "::add-mask::${{ secrets.ALBUM_URL_9 }}"
+        run: echo "::add-mask::${{ secrets.ALBUM_URL_10 }}"
       - name: copyfiles
         run: |
           curl -o export/photo/album/1.jpg ${{ secrets.ALBUM_URL_1 }}
+          curl -o export/photo/album/2.jpg ${{ secrets.ALBUM_URL_2 }}
+          curl -o export/photo/album/3.jpg ${{ secrets.ALBUM_URL_3 }}
+          curl -o export/photo/album/4.jpg ${{ secrets.ALBUM_URL_4 }}
+          curl -o export/photo/album/5.jpg ${{ secrets.ALBUM_URL_5 }}
+          curl -o export/photo/album/6.jpg ${{ secrets.ALBUM_URL_6 }}
+          curl -o export/photo/album/7.jpg ${{ secrets.ALBUM_URL_7 }}
+          curl -o export/photo/album/8.jpg ${{ secrets.ALBUM_URL_8 }}
+          curl -o export/photo/album/9.jpg ${{ secrets.ALBUM_URL_9 }}
+          curl -o export/photo/album/10.jpg ${{ secrets.ALBUM_URL_10 }}
       - uses: actions/upload-artifact@v3
         with:
           name: my_site
