@@ -1,0 +1,46 @@
+name: Publish GitHub Pages
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [build_and_deploy]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Inspect files before checkout
+        run: ls -la
+      - name: show current directory before checkout
+        run: pwd
+      - uses: actions/checkout@v3
+      - name: Inspect files after checkout
+        run: ls -la
+      - name: show current directory after checkout
+        run: pwd
+      - name: Add Mask
+        run: echo "::add-mask::${{ secrets.ALBUM_URL_1 }}"
+      - name: copyfiles
+        run: |
+          curl -o exprot/photo/album/1.jpg ${{ secrets.ALBUM_URL_1 }}
+      - uses: actions/upload-artifact@v3
+        with:
+          name: my_site
+          path: export
+      - uses: actions/upload-pages-artifact@v1
+        with:
+          path: export
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest 
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - uses: actions/deploy-pages@v1
+        id: deployment
