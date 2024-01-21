@@ -31,6 +31,9 @@ jobs:
           echo "::add-mask::${{ secrets.ALBUM_URL_8 }}"
           echo "::add-mask::${{ secrets.ALBUM_URL_9 }}"
           echo "::add-mask::${{ secrets.ALBUM_URL_10 }}"
+          echo "::add-mask::${{ secrets.BLUE_ALBUM_URL_1 }}"
+          echo "::add-mask::${{ secrets.BLUE_ALBUM_URL_2 }}"
+          echo "::add-mask::${{ secrets.BLUE_ALBUM_URL_3 }}"
       - name: copyfiles
         run: |
           curl -o export/photo/album/1.jpg ${{ secrets.ALBUM_URL_1 }}
@@ -43,6 +46,9 @@ jobs:
           curl -o export/photo/album/8.jpg ${{ secrets.ALBUM_URL_8 }}
           curl -o export/photo/album/9.jpg ${{ secrets.ALBUM_URL_9 }}
           curl -o export/photo/album/10.jpg ${{ secrets.ALBUM_URL_10 }}
+          curl -o export/photo/blue/1.jpg ${{ secrets.BLUE_ALBUM_URL_1 }}
+          curl -o export/photo/blue/2.jpg ${{ secrets.BLUE_ALBUM_URL_2 }}
+          curl -o export/photo/blue/3.jpg ${{ secrets.BLUE_ALBUM_URL_3 }}
       - uses: actions/upload-artifact@v3
         with:
           name: my_site
