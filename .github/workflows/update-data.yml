@@ -20,16 +20,17 @@ jobs:
       - name: show current directory after checkout
         run: pwd
       - name: Add Mask
-        run: echo "::add-mask::${{ secrets.ALBUM_URL_1 }}"
-        run: echo "::add-mask::${{ secrets.ALBUM_URL_2 }}"
-        run: echo "::add-mask::${{ secrets.ALBUM_URL_3 }}"
-        run: echo "::add-mask::${{ secrets.ALBUM_URL_4 }}"
-        run: echo "::add-mask::${{ secrets.ALBUM_URL_5 }}"
-        run: echo "::add-mask::${{ secrets.ALBUM_URL_6 }}"
-        run: echo "::add-mask::${{ secrets.ALBUM_URL_7 }}"
-        run: echo "::add-mask::${{ secrets.ALBUM_URL_8 }}"
-        run: echo "::add-mask::${{ secrets.ALBUM_URL_9 }}"
-        run: echo "::add-mask::${{ secrets.ALBUM_URL_10 }}"
+        run: |
+          echo "::add-mask::${{ secrets.ALBUM_URL_1 }}"
+          echo "::add-mask::${{ secrets.ALBUM_URL_2 }}"
+          echo "::add-mask::${{ secrets.ALBUM_URL_3 }}"
+          echo "::add-mask::${{ secrets.ALBUM_URL_4 }}"
+          echo "::add-mask::${{ secrets.ALBUM_URL_5 }}"
+          echo "::add-mask::${{ secrets.ALBUM_URL_6 }}"
+          echo "::add-mask::${{ secrets.ALBUM_URL_7 }}"
+          echo "::add-mask::${{ secrets.ALBUM_URL_8 }}"
+          echo "::add-mask::${{ secrets.ALBUM_URL_9 }}"
+          echo "::add-mask::${{ secrets.ALBUM_URL_10 }}"
       - name: copyfiles
         run: |
           curl -o export/photo/album/1.jpg ${{ secrets.ALBUM_URL_1 }}
