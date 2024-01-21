@@ -34,6 +34,7 @@ jobs:
           echo "::add-mask::${{ secrets.BLUE_ALBUM_URL_1 }}"
           echo "::add-mask::${{ secrets.BLUE_ALBUM_URL_2 }}"
           echo "::add-mask::${{ secrets.BLUE_ALBUM_URL_3 }}"
+          echo "::add-mask::${{ secrets.KEISOTSU_EXTERNALDATA_URL }}"
       - name: copyfiles
         run: |
           curl -o export/photo/album/1.jpg ${{ secrets.ALBUM_URL_1 }}
@@ -49,6 +50,7 @@ jobs:
           curl -o export/photo/blue/1.jpg ${{ secrets.BLUE_ALBUM_URL_1 }}
           curl -o export/photo/blue/2.jpg ${{ secrets.BLUE_ALBUM_URL_2 }}
           curl -o export/photo/blue/3.jpg ${{ secrets.BLUE_ALBUM_URL_3 }}
+          curl -o export/external_data.json ${{ secrets.KEISOTSU_EXTERNALDATA_URL }}
       - uses: actions/upload-artifact@v3
         with:
           name: my_site
