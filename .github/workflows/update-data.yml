@@ -55,7 +55,7 @@ jobs:
         with:
           name: my_site
           path: export
-      - uses: actions/upload-pages-artifact@v4
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: export
 
